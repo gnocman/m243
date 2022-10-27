@@ -1,0 +1,28 @@
+<div class="field phone_number">
+    <label class="label" for="phone_number"><span><?= /* @escapeNotVerified */
+            __('Telephone Number') ?></span></label>
+    <div class="control">
+        <input type="text" id="phone_number" name="phone_number" title="<?= /* @escapeNotVerified */
+        __('Telephone Number') ?>" class="input-text" autocomplete="off"
+               data-validate="{'required':true,'validate-phoneStrict':true}">
+    </div>
+</div>
+
+<?php
+/**
+ * @var  \Magenest\DatabaseEAV\Block\CustomerGroups $block
+ */
+$blockObj = $block->getLayout()->createBlock('Magenest\DatabaseEAV\Block\CustomerGroups');
+$groups = $blockObj->getCustomerGroup();
+?>
+<div class="field group_id required">
+    <label for="group_id" class="label"><span><?php /* @escapeNotVerified */
+            echo __('I want to register as') ?></span></label>
+    <div class="control">
+        <select name="group_id">
+            <?php foreach ($groups as $key => $data) { ?>
+                <option value="<?php echo $data['value'] ?>"><?php echo $data['label'] ?>"</option>
+            <?php } ?>
+        </select>
+    </div>
+</div>

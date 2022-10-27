@@ -1,0 +1,18 @@
+<?php
+/**
+ * @var Magenest\Test2\Block\System\Config\Button $block
+ */
+?>
+
+<script>
+    require([
+        'jquery',
+        'prototype',
+    ], function ($) {
+        $('#fieldbtn').click(function () {
+            window.location.reload(true);
+        });
+    });
+</script>
+
+<?= $block->getButtonHtml() ?>
